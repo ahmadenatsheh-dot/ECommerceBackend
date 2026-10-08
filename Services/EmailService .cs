@@ -1,10 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ECommerceBackend.Interfaces;
 
 namespace ECommerceBackend.Services
 {
-    internal class EmailService
+    public class EmailService : IHelpSender
     {
+        public async Task Send(string message)
+        {
+            Console.WriteLine($"Sending Email: {message}");
+
+            await Task.Delay(500);
+
+            Console.WriteLine("Email sent successfully.");
+        }
     }
 }

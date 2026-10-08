@@ -95,14 +95,8 @@ namespace ECommerceBackend.Services
                 return null;
             }
         }
-        public delegate bool ProductFilter(Product product)
-        {
-            foreach (var p in products)
-            {
-
-            }
-            
-        }
+        public delegate bool ProductFilter(Product product);
+        
         public List<Product> SearchByName (ProductFilter filter)
         {
             var result = new List<Product>();

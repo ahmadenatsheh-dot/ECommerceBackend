@@ -1,10 +1,18 @@
-﻿using System;
+﻿using ECommerceBackend.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ECommerceBackend.Helpers
+namespace ECommerceBackend.Services
 {
-    internal class SMSService
+    public class SmsService : IHelpSender
     {
+        public async Task Send(string message)
+        {
+            Console.WriteLine($"sending SMS: {message}");
+            await Task.Delay(500);
+            Console.WriteLine("SMS sent successfully.");
+        }
+
     }
 }
