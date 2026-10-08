@@ -13,3 +13,4 @@ C:\Users\Ahmad\Desktop\ECommerceBackend\ECommerceBackend\obj\Debug\net10.0\EComm
 C:\Users\Ahmad\Desktop\ECommerceBackend\ECommerceBackend\obj\Debug\net10.0\ECommerceBackend.genruntimeconfig.cache
 C:\Users\Ahmad\Desktop\ECommerceBackend\ECommerceBackend\obj\Debug\net10.0\ref\ECommerceBackend.dll
 C:\Users\Ahmad\Desktop\ECommerceBackend\ECommerceBackend\obj\Debug\net10.0\ECommerc.D0D3A95F.Up2Date
+C:\Users\Ahmad\Desktop\ECommerceBackend\ECommerceBackend\obj\Debug\net10.0\ECommerceBackend.sourcelink.json

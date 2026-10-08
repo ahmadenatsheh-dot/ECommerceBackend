@@ -13,8 +13,10 @@ namespace ECommerceBackend
             {
                 var productService = new ProductService();
                 var inputHelper = new InputHelper();
+                var EmailService = new HelpsServices(new EmailService());
+                var SmsService = new HelpsServices(new SmsService());
 
-                int choice;
+            int choice;
 
                 do
                 {
@@ -26,8 +28,9 @@ namespace ECommerceBackend
                         "4. Get Product By Id\n" +
                         "5. Get All Products\n" +
                         "6. Search Product By Name\n" +
-                        "7. Send Help Message\n" +
-                        "8. Exit"
+                        "7. Send Email Message\n" +
+                        "8. Send SMS Message\n" +
+                        "9. Exit"
                     );
 
                     choice = inputHelper.ReadInt();
@@ -110,20 +113,22 @@ namespace ECommerceBackend
                             Console.WriteLine("Enter Product Name:");
                             name = inputHelper.ReadString();
 
-                            productService.SearchByName(name);
+                            productService.SearchByName(product => product.Name==name);
                             break;
 
                         case 7:
                             Console.WriteLine("Enter Help Message:");
-                            string helpMessage = inputHelper.ReadString();
-
-                            var helpService = new HelpsServices();
-
-                            helpService.sendEmail(helpMessage, helpService);
-                            await helpService.sendSMS(helpMessage, helpService);
+                            string EmailMessage = inputHelper.ReadString();
+                           
+                            await EmailService.SendHelpMessage(EmailMessage);
                             break;
+                    case 8:
+                        Console.WriteLine("Enter Help Message:");
+                        string SmsMessage = inputHelper.ReadString();
 
-                        case 8:
+                        await SmsService.SendHelpMessage(SmsMessage);
+                        break;
+                    case 9:
                             Console.WriteLine("Exiting the application.");
                             break;
 
@@ -132,7 +137,7 @@ namespace ECommerceBackend
                             break;
                     }
 
-                } while (choice != 8);
+                } while (choice != 9);
             }
 
 

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace ECommerceBackend.Interfaces
 {
-    public interface IHelpServices
+    public interface IHelpSender
     {
-         void Send ();
+         Task Send (string message);
     }
 }
