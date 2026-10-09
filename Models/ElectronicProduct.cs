@@ -7,7 +7,7 @@ namespace ECommerceBackend.Models
     public class ElectronicProduct : Product
     {
         public ElectronicProduct(int id, string name, decimal price, int stock)
-            : base (id, name, price, stock, null)
+            : base (id, name, price, stock)
         {
 
         }

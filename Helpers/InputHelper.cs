@@ -18,17 +18,12 @@ namespace ECommerceBackend.Helpers
         {
             return Console.ReadLine();
         }
-        public DateTime? ReadDate()
+        public DateTime ReadDate()
         {
             string input = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                return null;
-            }
-            else
-            {
-                return Convert.ToDateTime(input);
-            }
+         
+            return Convert.ToDateTime(input);
+            
         }
 
     }

@@ -8,13 +8,12 @@ namespace ECommerceBackend.Models
 {
     public class Product : IProduct
     {
-        public Product(int id , string name , decimal price , int stock, DateTime? expirationDate)
+        public Product(int id , string name , decimal price , int stock)
         {
             this.Id = id;
             this.Name = name;
             this.Price = price;
             this.Stock = stock;
-            this.ExpirationDate = expirationDate;
         }
         private int id;
         private string name;
@@ -61,19 +60,6 @@ namespace ECommerceBackend.Models
                
             }
         }
-        public DateTime? ExpirationDate 
-        { 
-            get { return expirationDate; }
-            set
-            {
-                if (value == null || value > DateTime.Now )
-                    expirationDate = value;
-            }
-        }
-        public bool IsExpired ()
-
-        {
-            return ExpirationDate.HasValue && ExpirationDate.Value < DateTime.Now;
-        }
+       
     }
 }

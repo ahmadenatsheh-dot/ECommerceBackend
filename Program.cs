@@ -57,7 +57,7 @@ namespace ECommerceBackend
                         if(type == 1)
                         {
                             Console.WriteLine("Enter Product Expiration Date (yy-MM-dd)");
-                            DateTime? expirationDate = inputHelper.ReadDate();
+                            DateTime expirationDate = inputHelper.ReadDate();
                             var foodproduct = new FoodProduct(
                                 id,
                                 name,
@@ -108,7 +108,7 @@ namespace ECommerceBackend
                         if(type1 == 1)
                         {
                             Console.WriteLine("Enter new Product Expiration Date (yyyy-MM-dd):");
-                            DateTime? expirationDate = inputHelper.ReadDate();
+                            DateTime expirationDate = inputHelper.ReadDate();
                              var foodproduct = new FoodProduct(
                                 id,
                                 name,
