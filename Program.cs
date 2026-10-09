@@ -1,6 +1,7 @@
-﻿using ECommerceBackend.Models;
+﻿using ECommerceBackend.Helpers;
+using ECommerceBackend.Interfaces;
+using ECommerceBackend.Models;
 using ECommerceBackend.Services;
-using ECommerceBackend.Helpers;
 namespace ECommerceBackend
 {
     
@@ -38,6 +39,10 @@ namespace ECommerceBackend
                     switch (choice)
                     {
                         case 1:
+                        Console.WriteLine(
+                            "Enter 1 for Add Food Product\n"+
+                            "Enter 2 for Add Electronic Product");
+                            int type = inputHelper.ReadInt();
                             Console.WriteLine("Enter Product Id:");
                             int id = inputHelper.ReadInt();
 
@@ -49,19 +54,34 @@ namespace ECommerceBackend
 
                             Console.WriteLine("Enter Product Stock:");
                             int stock = inputHelper.ReadInt();
-
-                            Console.WriteLine("Enter Product Expiration Date (yyyy-MM-dd) or leave blank for no expiration date:");
+                        if(type == 1)
+                        {
+                            Console.WriteLine("Enter Product Expiration Date (yy-MM-dd)");
                             DateTime? expirationDate = inputHelper.ReadDate();
-
-                            Product product = new Product(
+                            var foodproduct = new FoodProduct(
                                 id,
                                 name,
                                 price,
                                 stock,
                                 expirationDate
                             );
+                            productService.AddProduct(foodproduct);
+                        }
+                        else if (type == 2)
+                        {
+                            ElectronicProduct electronicproduct = new ElectronicProduct(
+                                id,
+                                name,
+                                price,
+                                stock
+                            );
+                            productService.AddProduct(electronicproduct);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid product type.");
 
-                            productService.AddProduct(product);
+                        }
                             break;
 
                         case 2:
@@ -72,7 +92,9 @@ namespace ECommerceBackend
                             break;
 
                         case 3:
-                            Console.WriteLine("Enter Product Id you want to update:");
+                        Console.WriteLine("Enter 1 for Update Food Product\n" + "Enter 2 for Update Electronic Product");
+                        int type1 = inputHelper.ReadInt();
+                        Console.WriteLine("Enter Product Id you want to update:");
                             id = inputHelper.ReadInt();
 
                             Console.WriteLine("Enter new Product Name:");
@@ -83,19 +105,34 @@ namespace ECommerceBackend
 
                             Console.WriteLine("Enter new Product Stock:");
                             stock = inputHelper.ReadInt();
-
-                            Console.WriteLine("Enter new Product Expiration Date (yyyy-MM-dd) or leave blank for no expiration date:");
-                            expirationDate = inputHelper.ReadDate();
-
-                            product = new Product(
+                        if(type1 == 1)
+                        {
+                            Console.WriteLine("Enter new Product Expiration Date (yyyy-MM-dd):");
+                            DateTime? expirationDate = inputHelper.ReadDate();
+                             var foodproduct = new FoodProduct(
                                 id,
                                 name,
                                 price,
                                 stock,
                                 expirationDate
                             );
+                            productService.UpdateProduct(foodproduct);
+                        }
+                        else if(type1 == 2)
+                        {
+                            var electronicproduct = new ElectronicProduct(
+                                id,
+                                name,
+                                price,
+                                stock
+                            );
+                            productService.UpdateProduct(electronicproduct);
 
-                            productService.UpdateProduct(product);
+                        }
+                        else
+                        
+                            Console.WriteLine("Invalid product type.");
+
                             break;
 
                         case 4:

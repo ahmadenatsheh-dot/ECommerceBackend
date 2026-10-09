@@ -12,7 +12,7 @@ namespace ECommerceBackend.Interfaces
         public Product GetProductById(int Id);
         public List<Product> GetAllProducts();
         public void RemoveProductById(int id);
-        public List<Product> SearchByName(string name);
+        public List<Product> SearchByName(ProductFilter filter);
         public delegate bool ProductFilter(Product product);
     }
 }

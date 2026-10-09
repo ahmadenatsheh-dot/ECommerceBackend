@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ECommerceBackend.Models
 {
-    internal class FoodProduct : Product
+    public class FoodProduct : Product
     {
-        public FoodProduct(int id, string name, decimal price, int stock, DateTime expirationDate)
+        public FoodProduct(int id, string name, decimal price, int stock, DateTime? expirationDate)
             : base(id, name, price, stock, expirationDate)
         {
         }
